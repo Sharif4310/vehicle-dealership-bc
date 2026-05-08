@@ -1,0 +1,8 @@
+# Compiled app packages
+*.app
+
+# VS Code AL cache
+.vscode/.alcache/
+
+# AL packages (large binary files — download via AL: Download Symbols)
+.alpackages/
