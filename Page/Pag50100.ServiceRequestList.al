@@ -39,6 +39,12 @@ page 50100 "Service Request List"
                     ToolTip = 'Current status of the service request.';
                     StyleExpr = StatusStyle;
                 }
+                field(Priority; Rec.Priority)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Priority level of this service request.';
+                    StyleExpr = PriorityStyle;
+                }
                 field("Request Date"; Rec."Request Date")
                 {
                     ApplicationArea = All;
@@ -95,6 +101,7 @@ page 50100 "Service Request List"
 
     var
         StatusStyle: Text;
+        PriorityStyle: Text;
 
     trigger OnAfterGetRecord()
     begin
@@ -107,6 +114,15 @@ page 50100 "Service Request List"
                 StatusStyle := 'Strong';
             Rec.Status::Cancelled:
                 StatusStyle := 'Unfavorable';
+        end;
+
+        case Rec.Priority of
+            Rec.Priority::High:
+                PriorityStyle := 'Ambiguous';
+            Rec.Priority::Urgent:
+                PriorityStyle := 'Unfavorable';
+            else
+                PriorityStyle := 'Standard';
         end;
     end;
 }

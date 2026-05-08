@@ -55,6 +55,12 @@ table 50100 "Service Request"
             Caption = 'Actual Cost';
             MinValue = 0;
         }
+        field(12; Priority; Option)
+        {
+            Caption = 'Priority';
+            OptionMembers = Normal,High,Urgent;
+            OptionCaption = 'Normal,High,Urgent';
+        }
     }
 
     keys

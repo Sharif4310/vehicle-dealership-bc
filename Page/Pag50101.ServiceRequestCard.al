@@ -39,6 +39,11 @@ page 50101 "Service Request Card"
                     ApplicationArea = All;
                     ToolTip = 'Current status of the service request.';
                 }
+                field(Priority; Rec.Priority)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Priority level: Normal, High, or Urgent.';
+                }
             }
             group(Scheduling)
             {
@@ -80,7 +85,7 @@ page 50101 "Service Request Card"
             {
                 Caption = 'Notes';
 
-                field(Notes; Rec.Notes)
+                field(Notes1; Rec.Notes)
                 {
                     ApplicationArea = All;
                     MultiLine = true;
